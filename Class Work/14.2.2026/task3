@@ -1,0 +1,29 @@
+#swapiing
+
+a= int(input("enter number 1:"))
+b= int(input("enter number 2:"))
+
+#a=100  b=50
+
+#with using third variable
+
+#temp=a  temp=100  a=blank
+#a=b  #a=50  b=blank
+#b=temp  #b=100 temp=blank
+
+
+
+#without using variable
+#a=a+b    100+50  a=150
+#b=a-b   150-50   b=50
+#a=a-b  #150-100  =50
+
+
+
+#a,b=b,a
+
+print("after swapiing A :")
+print("after swapiing B:")
+
+
+#a=50   b=100
