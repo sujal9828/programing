@@ -1,0 +1,88 @@
+'''task 1 = Create a Pandas DataFrame with a column 'username' containing 5 Instagram usernames in 
+mixed case (e.g., 'CoolDude', 'foodieQueen', etc.), then use str.lower to convert all usernames to 
+lowercase and print the result.'''
+
+import pandas as pd
+
+df = pd.DataFrame({
+    'username': ['CoolDude', 'foodieQueen', 'TECH_GUY', 'MyStyle', 'KingKhan']
+})
+
+df['username'] = df['username'].str.lower()
+
+print(df)
+
+
+'''task2 = Given a Pandas Series of song titles from your Spotify playlist, use str.replace to remove
+all occurrences of the word 'Remix' from the titles and display the cleaned list.'''
+
+import pandas as pd
+
+songs = pd.Series([
+    'Love Song Remix',
+    'Party Remix',
+    'Sad Song',
+    'Dance Remix'
+])
+
+songs = songs.str.replace('Remix', '', regex=False).str.strip()
+
+print(songs)
+
+
+
+'''task3 = You have a DataFrame with a 'review' column containing user reviews from Zomato. Use 
+str.contains to filter and display only the reviews that mention the word 'delivery'.
+<br><br><em><strong>Hint:</strong> Remember to handle case sensitivity so that 'Delivery' and 
+'delivery' are both matched.</em>'''
+
+import pandas as pd
+
+df = pd.DataFrame({
+    'review': [
+        'Good food',
+        'Fast Delivery',
+        'Late delivery',
+        'Nice restaurant',
+        'Poor DELIVERY service'
+    ]
+})
+
+result = df[df['review'].str.contains('delivery', case=False, na=False)]
+
+print(result)
+
+
+'''task4 = Take a Pandas Series of Flipkart product categories in the format 'Electronics/Mobiles/
+Smartphones', 'Home/Kitchen/Appliances', etc. Use str.split to extract just the main category 
+(the part before the first '/') and create a new column with these values.'''
+
+import pandas as pd
+
+categories = pd.Series([
+    'Electronics/Mobiles/Smartphones',
+    'Home/Kitchen/Appliances',
+    'Fashion/Men/Shirts',
+    'Beauty/SkinCare/Creams'
+])
+
+df = pd.DataFrame({'category': categories})
+
+df['main_category'] = df['category'].str.split('/').str[0]
+
+print(df)
+
+
+'''task 5 = Given a DataFrame of YouTube video titles, use str.upper to convert all titles to 
+uppercase, then chain str.replace to substitute every space with an underscore.<br><br><em><strong>
+Constraint:</strong> Do this in a single line of code for the transformation.</em>'''
+
+import pandas as pd
+
+df = pd.DataFrame({
+    'title': ['my first video', 'learn pandas', 'python tutorial']
+})
+
+df['title'] = df['title'].str.upper().str.replace(' ', '_', regex=False)
+
+print(df)
